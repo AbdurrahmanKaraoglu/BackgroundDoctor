@@ -1,0 +1,38 @@
+name: background_doctor
+description: "Finds out why a Flutter app doesn't run in the background and why it closed: battery optimization, standby bucket, vendor autostart, exit reasons."
+version: 0.1.0
+homepage: "https://github.com/AbdurrahmanKaraoglu/BackgroundDoctor"
+repository: "https://github.com/AbdurrahmanKaraoglu/BackgroundDoctor"
+issue_tracker: "https://github.com/AbdurrahmanKaraoglu/BackgroundDoctor/issues"
+
+environment:
+  sdk: ^3.8.0
+  flutter: ">=3.32.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  pigeon: ^29.0.11
+
+topics:
+  - background
+  - battery
+  - diagnostics
+  - android
+  - crash
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.abdurrahmankaraoglu.background_doctor
+        pluginClass: BackgroundDoctorPlugin
+      ios:
+        pluginClass: BackgroundDoctorPlugin

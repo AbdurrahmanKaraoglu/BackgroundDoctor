@@ -1,0 +1,22 @@
+name: background_doctor_example
+description: "Demonstrates how to use the background_doctor plugin."
+publish_to: 'none'
+
+environment:
+  sdk: ^3.8.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  background_doctor:
+    path: ../
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true

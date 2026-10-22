@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+      No permissions are declared here. REQUEST_IGNORE_BATTERY_OPTIMIZATIONS is subject to
+      Google Play policy, so the host app adds it only if it qualifies.
+
+      <queries> makes vendor settings apps and settings screens visible on Android 11+
+      so resolveActivity() can find them. Keep in sync with KnownOemIntents.
+    -->
+    <queries>
+        <package android:name="com.asus.mobilemanager" />
+        <package android:name="com.coloros.safecenter" />
+        <package android:name="com.evenwell.powersaving.g3" />
+        <package android:name="com.huawei.systemmanager" />
+        <package android:name="com.iqoo.secure" />
+        <package android:name="com.letv.android.letvsafe" />
+        <package android:name="com.miui.securitycenter" />
+        <package android:name="com.oneplus.security" />
+        <package android:name="com.oppo.safe" />
+        <package android:name="com.samsung.android.lool" />
+        <package android:name="com.vivo.permissionmanager" />
+
+        <intent><action android:name="android.settings.APPLICATION_DETAILS_SETTINGS" /></intent>
+        <intent><action android:name="android.settings.APP_NOTIFICATION_SETTINGS" /></intent>
+        <intent><action android:name="android.settings.CHANNEL_NOTIFICATION_SETTINGS" /></intent>
+        <intent><action android:name="android.settings.IGNORE_BATTERY_OPTIMIZATION_SETTINGS" /></intent>
+        <intent><action android:name="android.settings.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" /></intent>
+        <intent><action android:name="android.settings.REQUEST_SCHEDULE_EXACT_ALARM" /></intent>
+        <intent><action android:name="android.settings.MANAGE_APP_USE_FULL_SCREEN_INTENT" /></intent>
+        <intent><action android:name="android.settings.IGNORE_BACKGROUND_DATA_RESTRICTIONS_SETTINGS" /></intent>
+        <intent><action android:name="android.settings.BATTERY_SAVER_SETTINGS" /></intent>
+        <intent><action android:name="android.settings.SETTINGS" /></intent>
+        <intent><action android:name="com.android.settings.action.BACKGROUND_OPTIMIZE" /></intent>
+    </queries>
+</manifest>
