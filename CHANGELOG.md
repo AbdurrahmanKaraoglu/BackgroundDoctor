@@ -1,3 +1,17 @@
+## 0.1.1
+
+### Docs
+- README: "Other packages" list (11 related packages) and a note on using it with advanced_background_locator.
+
+---
+
+## 0.1.1 (Türkçe)
+
+### Belgeler
+- README: "Diğer paketler" listesi (11 ilgili paket) ve advanced_background_locator ile birlikte kullanım notu.
+
+---
+
 ## 0.1.0
 
 ### Added

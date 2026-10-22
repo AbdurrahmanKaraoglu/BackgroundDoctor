@@ -23,6 +23,8 @@ Answers two questions in one package: **"Why doesn't my app run in the backgroun
 - [Architecture](#architecture)
 - [Using the core from Kotlin](#using-the-core-from-kotlin)
 - [Limitations](#limitations)
+- [Use with advanced_background_locator](#use-with-advanced_background_locator)
+- [Other packages](#other-packages)
 - [Türkçe](#türkçe)
 
 ## What is checked
@@ -242,6 +244,24 @@ The core is **not published to Maven yet**. `./gradlew publishToMavenLocal` (in 
 
 `example/` has an English/Turkish Material 3 app with three tabs: the report with the checklist, exit history (with traces, the state label and the unseen filter), and tools. The tools tab shows every settings action and the known intents table, plus debug-only buttons that cause a Java crash, a native `abort()`, an ANR, a signal kill or `exit(1)`, so you can see each exit reason after reopening the app.
 
+## Use with advanced_background_locator
+
+[advanced_background_locator](https://pub.dev/packages/advanced_background_locator) keeps location tracking running in the background. On aggressive vendors (MIUI, ColorOS, EMUI, …) that only works when nothing blocks it. Call `BackgroundDoctor.instance.checkHealth()` before starting tracking. If tracking stopped unexpectedly, `getExitReasons(onlyUnseen: true)` tells you whether the system or the user ended the process.
+
+## Other packages
+
+- [google_maps_polyline](https://pub.dev/packages/google_maps_polyline): Google Directions routes and polyline encode/decode (pure Dart)
+- [marker_crafter](https://pub.dev/packages/marker_crafter): Custom Google Maps markers drawn with Canvas
+- [animated_route_marker](https://pub.dev/packages/animated_route_marker): Smoothly animated map marker along a route or live GPS
+- [advanced_background_locator](https://pub.dev/packages/advanced_background_locator): Background location tracking plugin (Android/iOS)
+- [advanced_geofence](https://pub.dev/packages/advanced_geofence): Pure Dart geofencing engine: enter, exit and dwell events
+- [route_simulator](https://pub.dev/packages/route_simulator): Realistic fake GPS streams for testing and demos
+- [scan_tally](https://pub.dev/packages/scan_tally): Continuous barcode scanning for stock counts: dedupe, tally, feedback, GS1
+- [scan_tally_mobile_scanner](https://pub.dev/packages/scan_tally_mobile_scanner): mobile_scanner camera adapter for scan_tally
+- [turkish_kit](https://pub.dev/packages/turkish_kit): Turkish validators, money in words, casing, provinces, holidays (pure Dart)
+- [turkish_kit_flutter](https://pub.dev/packages/turkish_kit_flutter): Flutter widgets for turkish_kit: Turkish money field and input formatters
+- [flutter_toastify](https://pub.dev/packages/flutter_toastify): Animated toast notifications
+
 ## License
 
 MIT, see [LICENSE](LICENSE).
@@ -310,6 +330,24 @@ Desteklenen markalar ve bileşenler yukarıdaki İngilizce tablodadır (tablo s�
 - Uygulama açıkken bekleme grubu genelde `active` görünür.
 - Bir ekranı açmak sorunun çözüldüğü anlamına gelmez; raporu yeniden okuyun.
 - iOS bu makinede derlenmedi ve test edilmedi.
+
+### advanced_background_locator ile birlikte kullanım
+
+[advanced_background_locator](https://pub.dev/packages/advanced_background_locator) konum takibini arka planda sürdürür. Agresif üreticilerde (MIUI, ColorOS, EMUI vb.) bu ancak hiçbir ayar engellemiyorsa çalışır. Takibi başlatmadan önce `checkHealth()` ile engelleri gösterin. Takip beklenmedik biçimde durduysa `getExitReasons(onlyUnseen: true)` sürecin sistem tarafından mı yoksa kullanıcı tarafından mı sonlandırıldığını söyler.
+
+### Diğer paketler
+
+- [google_maps_polyline](https://pub.dev/packages/google_maps_polyline): Google Directions rotası ve polyline kodlama/çözme (saf Dart)
+- [marker_crafter](https://pub.dev/packages/marker_crafter): Canvas ile çizilen özel Google Maps işaretçileri
+- [animated_route_marker](https://pub.dev/packages/animated_route_marker): Rota ya da canlı GPS üzerinde akıcı hareket eden harita işaretçisi
+- [advanced_background_locator](https://pub.dev/packages/advanced_background_locator): Arka planda konum takibi eklentisi (Android/iOS)
+- [advanced_geofence](https://pub.dev/packages/advanced_geofence): Saf Dart geofence motoru: giriş, çıkış ve bekleme olayları
+- [route_simulator](https://pub.dev/packages/route_simulator): Test ve demo için gerçekçi sahte GPS akışı
+- [scan_tally](https://pub.dev/packages/scan_tally): Stok sayımı için sürekli barkod okutma: tekrar ayıklama, sayım, geri bildirim, GS1
+- [scan_tally_mobile_scanner](https://pub.dev/packages/scan_tally_mobile_scanner): scan_tally için mobile_scanner kamera adaptörü
+- [turkish_kit](https://pub.dev/packages/turkish_kit): Türkçe doğrulayıcılar, tutarı yazıyla yazma, harf dönüşümü, il/ilçe, tatiller (saf Dart)
+- [turkish_kit_flutter](https://pub.dev/packages/turkish_kit_flutter): turkish_kit için Flutter bileşenleri: Türk biçimli para alanı ve girdi biçimleyicileri
+- [flutter_toastify](https://pub.dev/packages/flutter_toastify): Animasyonlu toast bildirimleri
 
 ### Lisans
 

@@ -12,7 +12,7 @@ maintainer has.
 ```bash
 cd android/core
 ./gradlew testDebugUnitTest        # 34 JVM + Robolectric tests
-./gradlew publishToMavenLocal      # ~/.m2/repository/com/abdurrahmankaraoglu/background-doctor-core/0.1.0/
+./gradlew publishToMavenLocal      # ~/.m2/repository/com/abdurrahmankaraoglu/background-doctor-core/0.1.1/
 ```
 
 The Gradle wrapper and `local.properties` (with `sdk.dir`) are not committed. Copy the wrapper
