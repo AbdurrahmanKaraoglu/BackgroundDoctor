@@ -2,15 +2,13 @@ group = "com.abdurrahmankaraoglu.background_doctor"
 version = "1.0-SNAPSHOT"
 
 buildscript {
-    val kotlinVersion = "2.4.0"
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-        classpath("com.android.tools.build:gradle:9.1.0")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+        classpath("com.android.tools.build:gradle:9.3.1")
     }
 }
 
@@ -23,12 +21,6 @@ allprojects {
 
 plugins {
     id("com.android.library")
-}
-
-// AGP 9+ compiles Kotlin on its own; host apps still on AGP 8 need the Kotlin Gradle plugin.
-val agpMajorVersion = com.android.Version.ANDROID_GRADLE_PLUGIN_VERSION.substringBefore('.').toInt()
-if (agpMajorVersion < 9) {
-    apply(plugin = "org.jetbrains.kotlin.android")
 }
 
 android {
@@ -45,7 +37,8 @@ android {
         getByName("main") {
             // The Flutter-independent core (core/) is compiled into the plugin directly, so the
             // host app's Gradle settings don't need to know about a second project.
-            java.srcDirs("src/main/kotlin", "core/src/main/kotlin")
+            // With AGP's built-in Kotlin, Kotlin sources must be listed under `kotlin`.
+            kotlin.srcDirs("src/main/kotlin", "core/src/main/kotlin")
             manifest.srcFile("core/src/main/AndroidManifest.xml")
         }
     }
@@ -60,9 +53,11 @@ android {
     }
 }
 
-// Works with both the Kotlin Gradle plugin and AGP's built-in Kotlin support.
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile>().configureEach {
-    compilerOptions.jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+// Kotlin is compiled by AGP's built-in Kotlin support; the plugin doesn't apply KGP itself.
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+    }
 }
 
 dependencies {

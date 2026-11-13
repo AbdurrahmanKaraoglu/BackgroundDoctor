@@ -52,9 +52,10 @@ Other statuses: `unsupported` (the API doesn't exist on this Android version) an
 
 ```yaml
 dependencies:
-  background_doctor: ^0.1.0
+  background_doctor: ^0.2.0
 ```
 
+- **Flutter:** 3.47 or later (Dart 3.13+). The checklist widget is built with [`material_ui`](https://pub.dev/packages/material_ui). It also works in apps that still use `package:flutter/material.dart`, but there it uses the default Material theme and shows no snack bars.
 - **Android:** minSdk 24, compileSdk 36. No permissions are added. The plugin's manifest only adds `<queries>` entries so that vendor settings apps are visible on Android 11+.
 - **iOS:** 15.0+. Most of these problems don't exist on iOS, so the checks return `notApplicable`. The notification permission and Low Power Mode are read for real. Exit reasons return `supported: false`; MetricKit support is planned.
 
@@ -284,9 +285,10 @@ MIT, see [LICENSE](LICENSE).
 
 ```yaml
 dependencies:
-  background_doctor: ^0.1.0
+  background_doctor: ^0.2.0
 ```
 
+- **Flutter:** 3.47 veya üstü (Dart 3.13+). Kontrol listesi widget'ı [`material_ui`](https://pub.dev/packages/material_ui) ile yazıldı. Hâlâ `package:flutter/material.dart` kullanan uygulamalarda da çalışır; ancak orada varsayılan Material temasını kullanır ve snack bar göstermez.
 - **Android:** minSdk 24, compileSdk 36. Eklenti hiçbir izin eklemez. Manifestine yalnızca Android 11+ paket görünürlüğü için `<queries>` girdileri ekler.
 - **iOS:** 15.0+. Bu sorunların çoğu iOS'ta yoktur, bu yüzden maddeler `notApplicable` döner. Bildirim izni ve Düşük Güç Modu gerçek değerleriyle okunur. Kapanış nedenleri `supported: false` döner; MetricKit desteği sonraki bir sürümde gelecek.
 

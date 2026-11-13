@@ -3,13 +3,12 @@ description: "Demonstrates how to use the background_doctor plugin."
 publish_to: 'none'
 
 environment:
-  sdk: ^3.8.0
+  sdk: ^3.13.0
 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_localizations:
-    sdk: flutter
+  material_ui: ^1.11.0
   background_doctor:
     path: ../
 

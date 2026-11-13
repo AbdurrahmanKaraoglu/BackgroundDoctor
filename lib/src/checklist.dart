@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import 'background_doctor.dart';
 import 'models.dart';
@@ -244,7 +244,9 @@ class _BackgroundDoctorChecklistState extends State<BackgroundDoctorChecklist> w
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) => _MaterialUiScope(child: Builder(builder: _buildContent));
+
+  Widget _buildContent(BuildContext context) {
     final strings = widget.strings ?? BackgroundDoctorStrings.of(Localizations.localeOf(context));
     final report = _report;
     if (report == null) {
@@ -340,4 +342,32 @@ class _Message extends StatelessWidget {
           ],
         ),
       );
+}
+
+/// Lets the checklist run inside apps that still use `package:flutter/material.dart`.
+/// Its `Theme`, `Material` and `MaterialLocalizations` are different types from
+/// material_ui's, so they aren't found here; this adds the missing ones. In such apps the
+/// checklist uses the default Material theme (matching the platform brightness) and
+/// snack bars aren't shown, because the app's `ScaffoldMessenger` isn't visible either.
+class _MaterialUiScope extends StatelessWidget {
+  const _MaterialUiScope({required this.child});
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    Widget result = Material(type: MaterialType.transparency, child: child);
+    if (context.findAncestorWidgetOfExactType<Theme>() == null) {
+      final brightness = MediaQuery.maybePlatformBrightnessOf(context) ?? Brightness.light;
+      result = Theme(data: ThemeData(brightness: brightness), child: result);
+    }
+    if (Localizations.of<MaterialLocalizations>(context, MaterialLocalizations) == null) {
+      result = Localizations.override(
+        context: context,
+        delegates: GlobalMaterialLocalizations.delegates,
+        child: result,
+      );
+    }
+    return result;
+  }
 }

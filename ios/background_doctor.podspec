@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'background_doctor'
-  s.version          = '0.1.1'
+  s.version          = '0.2.0'
   s.summary          = 'Background health checks for Flutter apps (iOS returns safe defaults).'
   s.description      = <<-DESC
 Reports why an app does not run in the background. On iOS only the notification

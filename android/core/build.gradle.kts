@@ -1,10 +1,10 @@
 plugins {
-    id("com.android.library") version "9.1.0"
+    id("com.android.library") version "9.3.1"
     `maven-publish`
 }
 
 group = "com.abdurrahmankaraoglu"
-version = "0.1.1"
+version = "0.2.0"
 
 android {
     namespace = "com.abdurrahmankaraoglu.backgrounddoctor.core"
@@ -34,8 +34,11 @@ android {
     }
 }
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile>().configureEach {
-    compilerOptions.jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+// AGP's built-in Kotlin compiles the sources; no Kotlin Gradle plugin is applied.
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+    }
 }
 
 dependencies {
