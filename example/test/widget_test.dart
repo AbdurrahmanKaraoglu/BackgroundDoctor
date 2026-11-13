@@ -1,7 +1,7 @@
 import 'package:background_doctor/background_doctor.dart';
 import 'package:background_doctor/src/messages.g.dart';
 import 'package:background_doctor_example/main.dart';
-import 'package:material_ui/material_ui.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 class _FakeApi extends BackgroundDoctorHostApi {

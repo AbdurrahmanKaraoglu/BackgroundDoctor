@@ -1,24 +1,24 @@
 ## 0.2.0
 
 ### Breaking
-- Requires Flutter 3.47 / Dart 3.13 or later (needed by `material_ui`).
+- Requires Flutter 3.44 / Dart 3.12 or later (needed for AGP's built-in Kotlin).
 
 ### Changed
-- `BackgroundDoctorChecklist` now uses `package:material_ui` instead of `package:flutter/material.dart`, in line with Flutter 3.50 deprecating the built-in Material library. The widget still works inside apps that use `flutter/material`: it adds its own `Material` and localizations. In those apps it falls back to the default Material theme (matching the platform brightness) and doesn't show snack bars.
 - Android: migrated to AGP's built-in Kotlin. The plugin and the `android/core` library no longer apply the Kotlin Gradle plugin (KGP), so they keep building on AGP 10. The core library still builds on its own, without Flutter.
-- Example: AGP 9.3.1, Gradle 9.5.0, Kotlin 2.4.20 and `android.builtInKotlin=true`, so it builds with Flutter 3.50. It now uses `material_ui` as well.
+- Example: AGP 9.3.1, Gradle 9.5.0, Kotlin 2.4.20 and `android.builtInKotlin=true`, so it builds with Flutter 3.50.
+- On Flutter 3.50 the `package:flutter/material.dart` deprecation is reported at info level only. The move to `material_ui` is postponed: its types are incompatible with apps that still use `flutter/material`.
 
 ---
 
 ## 0.2.0 (Türkçe)
 
 ### Kırıcı değişiklik
-- En az Flutter 3.47 / Dart 3.13 gerekir (`material_ui` bunu istiyor).
+- En az Flutter 3.44 / Dart 3.12 gerekir (AGP'nin yerleşik Kotlin desteği için).
 
 ### Değişti
-- `BackgroundDoctorChecklist` artık `package:flutter/material.dart` yerine `package:material_ui` kullanıyor; Flutter 3.50 yerleşik Material kütüphanesini kullanımdan kaldırıyor. Widget `flutter/material` kullanan uygulamalarda da çalışmaya devam eder, çünkü gereken `Material` ve yerelleştirmeyi kendisi ekler. Bu uygulamalarda varsayılan Material temasına düşer (platformun açık/koyu ayarına uyar) ve snack bar göstermez.
 - Android: AGP'nin yerleşik Kotlin desteğine geçildi. Eklenti ve `android/core` kütüphanesi artık Kotlin Gradle eklentisini (KGP) uygulamıyor; böylece AGP 10'da da derlenmeye devam eder. Çekirdek kütüphane Flutter olmadan, kendi başına derlenmeye devam ediyor.
-- Örnek uygulama: Flutter 3.50 ile derlenmesi için AGP 9.3.1, Gradle 9.5.0, Kotlin 2.4.20 ve `android.builtInKotlin=true`. Örnek de artık `material_ui` kullanıyor.
+- Örnek uygulama: Flutter 3.50 ile derlenmesi için AGP 9.3.1, Gradle 9.5.0, Kotlin 2.4.20 ve `android.builtInKotlin=true`.
+- Flutter 3.50'deki `package:flutter/material.dart` kullanımdan kalkma uyarısı yalnızca bilgi düzeyindedir. `material_ui`'a geçiş ertelendi, çünkü türleri `flutter/material` kullanan uygulamalarla uyumsuz.
 
 ---
 
